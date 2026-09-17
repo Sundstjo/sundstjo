@@ -18,21 +18,21 @@ body:before,body:after{content:"";position:fixed;z-index:-1;border-radius:50%;op
 <div class="shell"><header class="top"><div class="logo">MEME / LITERACY / 2026</div><div class="score-pill" id="scoreTop">0 P</div></header><section class="hero"><p class="eyebrow">15 frågor • 1 chans att inte bli cooked</p><h1>Är du <span>cooked?</span> 💀</h1><p class="subtitle">Testa din rizz, aura och meme-logik. Välj med magkänslan. Eller ren delulu.</p></section><div class="progress-wrap"><div class="progress"><div class="bar" id="bar"></div></div><span id="progressText">01 / 15</span></div><main class="card" id="card"></main></div>
 <script>
 const qs=[
-{q:"Vad betyder rizz oftast?",a:["Förmåga att charma eller flirta","Att vara extremt vältränad","Att vara arg","Att vara bra på spel"],c:0,e:"Rizz handlar om charm."},
-{q:"Vilken mening använder no cap bäst?",a:["Den där burgaren var sjukligt god, no cap.","Jag tog på mig min no cap.","Kan du no cap dörren?","Jag köpte två no caps."],c:0,e:"No cap betyder på riktigt."},
-{q:"Vad betyder frfr?",a:["For real, for real","For friends, for real","Fast response, fast reaction","Free from rules"],c:0,e:"Frfr betyder for real, for real."},
-{q:"Vad betyder +1000 aura?",a:["Personen framstod som extremt cool","Personen fick 1000 följare","Personen fick A","Personen blev starkare"],c:0,e:"Aura används som ett mått på coolhet."},
-{q:"Vilken situation är aura loss?",a:["Du vinkar tillbaka men personen vinkade till någon bakom dig","Du sätter ett långskott","Du fångar mobilen precis innan den slår i marken","Du svarar rätt när ingen annan kan"],c:0,e:"Pinsamt socialt misslyckande."},
-{q:"Vad är en rizzler?",a:["Någon som anses ha mycket rizz","Någon som alltid ljuger","En memeskapare","En dålig gamer"],c:0,e:"En skämtsam benämning på någon med mycket rizz."},
-{q:"Vad beskriver GigaChad?",a:["En överdrivet självsäker och idealiserad Chad-figur","Någon som aldrig lämnar sitt rum","Någon som alltid förlorar diskussioner","En NPC i ett spel"],c:0,e:"Den idealiserade versionen av Chad."},
-{q:"Bro, you're cooked betyder...",a:["Du är illa ute","Du kommer få A","Du är hungrig","Du borde gå hem"],c:0,e:"Cooked betyder körd eller illa ute."},
-{q:"Vilken mening använder delulu bäst?",a:["Han tror Taylor Swift är kär i honom för att hon gillade hans kommentar. Delulu.","Jag är delulu för att jag glömde pennan.","Min dator är delulu, batteriet är slut.","Maten är delulu, den är stark."],c:0,e:"Delulu kommer från delusional."},
-{q:"Vad menas med NPC behavior?",a:["Han uppfattades som mekanisk, generisk eller förutsägbar","Han var festens huvudperson","Han hade högst aura","Han organiserade festen"],c:0,e:"NPC anspelar på spelens non-player characters."},
-{q:"Vilken reaktion passar när hela klassen blir överraskad?",a:["Surprised Pikachu","GigaChad","NPC","Sigma grindset"],c:0,e:"Surprised Pikachu är en överdriven chockreaktion."},
-{q:"Vilken meme-logik passar när du börjar kvällen före?",a:["This is fine","+1000 aura","GigaChad","Rizzler"],c:0,e:"This is fine passar när allt är kaos."},
-{q:"Vilken användning av sus är rimligast?",a:["Han säger att han inte åt kakan men har choklad runt hela munnen. Sus.","Den här stolen är väldigt sus eftersom den är blå.","Jag susade min läxa igår.","Jag köpte tre sus."],c:0,e:"Sus betyder suspicious."},
-{q:"Vilken kommentar passar efter ett imponerande tal?",a:["Bro gained infinite aura.","Bro is cooked.","Bro is delulu.","NPC behavior."],c:0,e:"En imponerande prestation kan vara massiv aura gain."},
-{q:"Vilket ord passar en orealistiskt optimistisk provförutsägelse?",a:["Delulu","Frfr","No cap","Rizzler"],c:0,e:"Orealistisk optimism är delulu."}
+{q:"En person får hela rummet att skratta och verkar väldigt charmig. Vilket uttryck passar bäst?",a:["rizz","aura","delulu","NPC"],c:0,e:"Rizz handlar om charm – särskilt romantisk eller flirtig sådan."},
+{q:"Du säger att du verkligen menar det du skriver. Vilket uttryck kan du lägga till?",a:["no cap","frfr","sus","cooked"],c:0,e:"No cap betyder ungefär på riktigt eller jag ljuger inte."},
+{q:"En kompis betonar att något verkligen stämmer. Vilket uttryck använder kompisen?",a:["frfr","no cap","delulu","rizzler"],c:0,e:"Frfr betyder for real, for real – ungefär på riktigt."},
+{q:"En elev löser den svåraste uppgiften direkt och får alla att tappa hakan. Vilket uttryck passar?",a:["+1000 aura","GigaChad","cooked","NPC"],c:0,e:"Aura används skämtsamt som ett mått på coolhet eller social pondus."},
+{q:"Vilket uttryck passar när du vinkar tillbaka, men inser att personen vinkade till någon bakom dig?",a:["aura loss","sus","delulu","GigaChad"],c:0,e:"Pinsamt socialt misslyckande = klassisk aura loss."},
+{q:"Vad kallar man skämtsamt en person som är särskilt bra på att charma?",a:["rizzler","NPC","sigma","cooked"],c:0,e:"Rizzler är en skämtsam benämning på någon med mycket rizz."},
+{q:"Vilket uttryck beskriver en överdrivet självsäker och idealiserad person?",a:["GigaChad","NPC behavior","delulu","aura loss"],c:0,e:"GigaChad är den överdrivna, idealiserade versionen av Chad."},
+{q:"Du har inte pluggat och provet börjar om två minuter. Vilket uttryck beskriver läget?",a:["cooked","no cap","rizz","GigaChad"],c:0,e:"Cooked betyder körd eller illa ute i situationen."},
+{q:"En person tror att en kändis är kär i dem bara för att kändisen gillade en kommentar. Vilket uttryck passar?",a:["delulu","frfr","sus","rizzler"],c:0,e:"Delulu kommer från delusional och används om orealistiska föreställningar."},
+{q:"En person upprepar samma repliker hela kvällen och känns mekanisk. Vilket uttryck passar?",a:["NPC behavior","GigaChad","infinite aura","rizz"],c:0,e:"NPC anspelar på spelens non-player characters."},
+{q:"Hela klassen blir chockad av en nyhet som egentligen borde ha varit förutsebar. Vilken reaktion passar?",a:["Surprised Pikachu","This is fine","GigaChad","NPC"],c:0,e:"Surprised Pikachu används som en överdriven chockreaktion."},
+{q:"En elev börjar med uppgiften sent på kvällen trots att allt är kaos. Vilken meme passar bäst?",a:["This is fine","+1000 aura","GigaChad","Rizzler"],c:0,e:"This is fine passar när situationen uppenbart är kaos men personen låtsas att allt är lugnt."},
+{q:"En person nekar till att ha ätit kakan, men har choklad runt hela munnen. Vilket uttryck passar?",a:["sus","delulu","no cap","NPC"],c:0,e:"Sus betyder suspicious, alltså misstänkt."},
+{q:"En elev håller ett imponerande tal utan manus och får hela klassen att lyssna. Vilken kommentar passar?",a:["Bro gained infinite aura.","Bro is cooked.","Bro is delulu.","NPC behavior."],c:0,e:"En imponerande prestation kan skämtsamt beskrivas som massiv aura gain."},
+{q:"En person pluggar inte eftersom den tror att exakt det den redan kan kommer på provet. Vilket uttryck passar?",a:["delulu","frfr","no cap","rizzler"],c:0,e:"Att lita på en orealistiskt optimistisk föreställning är väldigt delulu."}
 ];
 function shuffleAnswers(question){
 	const answers=question.a.map((text,index)=>({text,correct:index===question.c}));
