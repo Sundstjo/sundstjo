@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="sv">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meme &amp; Slang Quiz</title></head>
+<body>
+<main id="card"></main>
+<script>
+const qs=[
+{q:"Vad betyder rizz oftast?",a:["Förmåga att charma eller flirta","Att vara extremt vältränad","Att vara arg","Att vara bra på spel"],c:0,e:"Rizz handlar om charm."},
+{q:"Vilken mening använder no cap bäst?",a:["Den där burgaren var sjukligt god, no cap.","Jag tog på mig min no cap.","Kan du no cap dörren?","Jag köpte två no caps."],c:0,e:"No cap betyder på riktigt."},
+{q:"Vad betyder frfr?",a:["For real, for real","For friends, for real","Fast response, fast reaction","Free from rules"],c:0,e:"Frfr betyder for real, for real."},
+{q:"Vad betyder +1000 aura?",a:["Personen framstod som extremt cool","Personen fick 1000 följare","Personen fick A","Personen blev starkare"],c:0,e:"Aura används som ett mått på coolhet."},
+{q:"Vilken situation är aura loss?",a:["Du vinkar tillbaka men personen vinkade till någon bakom dig","Du sätter ett långskott","Du fångar mobilen precis innan den slår i marken","Du svarar rätt när ingen annan kan"],c:0,e:"Pinsamt socialt misslyckande."},
+{q:"Vad är en rizzler?",a:["Någon som anses ha mycket rizz","Någon som alltid ljuger","En memeskapare","En dålig gamer"],c:0,e:"En skämtsam benämning på någon med mycket rizz."},
+{q:"Vad beskriver GigaChad?",a:["En överdrivet självsäker och idealiserad Chad-figur","Någon som aldrig lämnar sitt rum","Någon som alltid förlorar diskussioner","En NPC i ett spel"],c:0,e:"Den idealiserade versionen av Chad."},
+{q:"Bro, you're cooked betyder...",a:["Du är illa ute","Du kommer få A","Du är hungrig","Du borde gå hem"],c:0,e:"Cooked betyder körd eller illa ute."},
+{q:"Vilken mening använder delulu bäst?",a:["Han tror Taylor Swift är kär i honom för att hon gillade hans kommentar. Delulu.","Jag är delulu för att jag glömde pennan.","Min dator är delulu, batteriet är slut.","Maten är delulu, den är stark."],c:0,e:"Delulu kommer från delusional."},
+{q:"Vad menas med NPC behavior?",a:["Han uppfattades som mekanisk, generisk eller förutsägbar","Han var festens huvudperson","Han hade högst aura","Han organiserade festen"],c:0,e:"NPC anspelar på spelens non-player characters."},
+{q:"Vilken reaktion passar när hela klassen blir överraskad?",a:["Surprised Pikachu","GigaChad","NPC","Sigma grindset"],c:0,e:"Surprised Pikachu är en överdriven chockreaktion."},
+{q:"Vilken meme-logik passar när du börjar kvällen före?",a:["This is fine","+1000 aura","GigaChad","Rizzler"],c:0,e:"This is fine passar när allt är kaos."},
+{q:"Vilken användning av sus är rimligast?",a:["Han säger att han inte åt kakan men har choklad runt hela munnen. Sus.","Den här stolen är väldigt sus eftersom den är blå.","Jag susade min läxa igår.","Jag köpte tre sus."],c:0,e:"Sus betyder suspicious."},
+{q:"Vilken kommentar passar efter ett imponerande tal?",a:["Bro gained infinite aura.","Bro is cooked.","Bro is delulu.","NPC behavior."],c:0,e:"En imponerande prestation kan vara massiv aura gain."},
+{q:"Vilket ord passar en orealistiskt optimistisk provförutsägelse?",a:["Delulu","Frfr","No cap","Rizzler"],c:0,e:"Orealistisk optimism är delulu."}
+];
+function shuffleAnswers(question){
+	const answers=question.a.map((text,index)=>({text,correct:index===question.c}));
+	for(let index=answers.length-1;index>0;index--){
+		const randomIndex=Math.floor(Math.random()*(index+1));
+		[answers[index],answers[randomIndex]]=[answers[randomIndex],answers[index]];
+	}
+	question.a=answers.map(answer=>answer.text);
+	question.c=answers.findIndex(answer=>answer.correct);
+}
+qs.forEach(shuffleAnswers);
+let i=0,score=0,locked=false;
+function render(){locked=false;const x=qs[i];document.getElementById("card").innerHTML=`<p>FRÅGA ${i+1} / ${qs.length}</p><h1>${x.q}</h1><div>${x.a.map((v,j)=>`<button class="ans" onclick="pick(${j},this)">${String.fromCharCode(65+j)}. ${v}</button>`).join("")}</div><p id="fb"></p><button id="next" onclick="go()" hidden>Nästa</button>`;}
+function pick(j,el){if(locked)return;locked=true;const x=qs[i],bs=[...document.querySelectorAll(".ans")];bs[x.c].classList.add("correct");if(j!==x.c)el.classList.add("wrong");else score++;bs.forEach(b=>b.disabled=true);document.getElementById("fb").textContent=(j===x.c?"Rätt! ":"Inte riktigt. ")+x.e;document.getElementById("next").hidden=false;}
+function go(){i++;if(i<qs.length)render();else document.getElementById("card").textContent=`${score}/${qs.length}`;}
+render();
+</script>
+</body></html>
